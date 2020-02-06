@@ -10,7 +10,6 @@ import com.balsikandar.kotlindslsamples.OnRequestCallBack
 
 class PermissionRequest(
     val activityContext: Context,
-    val resultCode: Int,
     val permissions: Array<String>?,
     val onPermissionGranted: () -> Unit,
     val onPermissionDenied: () -> Unit
@@ -18,7 +17,6 @@ class PermissionRequest(
 
     constructor(builder: Builder) : this(
         builder.activityContext,
-        builder.resultCode!!,
         builder.permissions,
         builder.onPermissionGranted,
         builder.onPermissionDenied
@@ -50,7 +48,6 @@ class PermissionRequest(
             val intent = Intent(activityContext, PermissionActivity::class.java)
             val bundle = Bundle().apply {
                 putStringArray("permissions", permissions)
-                putInt("result_code", resultCode)
             }
             intent.putExtras(bundle)
 
@@ -61,7 +58,6 @@ class PermissionRequest(
 
 class Builder(context: Context) {
     var activityContext: Context = context
-    var resultCode: Int? = 0
     lateinit var permissions: Array<String>
     lateinit var onPermissionGranted: () -> Unit
     lateinit var onPermissionDenied: () -> Unit

@@ -12,7 +12,7 @@ class PermissionActivity : AppCompatActivity() {
     companion object {
 
         lateinit var listener: OnRequestCallBack
-        private var resultCode: Int? = null
+        private var resultCode: Int = 10001
 
         fun intialize(listener: OnRequestCallBack) {
             Companion.listener = listener
@@ -23,13 +23,12 @@ class PermissionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val permissions = intent.extras?.getStringArray("permissions")
-        resultCode = intent.extras?.getInt("result_code")
 
         if (permissions != null && ContextCompat.checkSelfPermission(this, permissions.get(0)) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(
                 this,
                 permissions,
-                resultCode!!
+                resultCode
             )
         }
     }

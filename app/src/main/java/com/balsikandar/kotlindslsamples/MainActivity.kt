@@ -81,7 +81,6 @@ class MainActivity : AppCompatActivity() {
 
         getPermissions {
             permissions = permissionsList
-            resultCode = 4
             onPermissionGranted = {
                 Toast.makeText(context, "onPermissionGranted", Toast.LENGTH_LONG).show()
             }
