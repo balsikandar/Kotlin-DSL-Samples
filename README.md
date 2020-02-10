@@ -1,4 +1,4 @@
-# kotlin-dsl-samples
+# Kotlin-DSL-Samples
 This is a sample repo to show how Kotlin DSL help in adding values to our projects. DL simplifies code plus helps in generalising solutions. Currently this repo contains solutions for Android specific APIs only but anyone is free to add and suggest any DSL that can benefit the others. I have a dsl package in all my recent projects where i have added some DSLs that i now use regularly one specifically related to Dialogs.
 
 
