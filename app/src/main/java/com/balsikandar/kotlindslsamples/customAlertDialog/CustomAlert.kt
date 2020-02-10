@@ -1,4 +1,4 @@
-package com.balsikandar.kotlindslsamples.customAlert
+package com.balsikandar.kotlindslsamples.customAlertDialog
 
 import android.app.Activity
 import android.content.Context
