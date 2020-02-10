@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
 import com.balsikandar.kotlindslsamples.bottomsheetdialog.BottomSheetDSLBuilder.Companion.bottomSheetDialog
 import com.balsikandar.kotlindslsamples.customAlertDialog.AlertData
 import com.balsikandar.kotlindslsamples.customAlertDialog.CustomAlert.Companion.customAlert
@@ -29,16 +30,19 @@ class MainActivity : AppCompatActivity() {
     fun showDialogFragment(view: View) {
         dialog {
             layoutId = R.layout.layout_dialog
-            setCustomView = {
+            setCustomView = {it: View, dialog: DialogFragment ->
+
                 it.title.text = getString(R.string.fragment_dialog_title)
                 it.description.text = getString(R.string.fragment_dialog_description)
 
                 it.accept.setOnClickListener {
                     Toast.makeText(context, "accept button click", Toast.LENGTH_LONG).show()
+                    dialog.dismiss()
                 }
 
                 it.reject.setOnClickListener {
                     Toast.makeText(context, "reject button click", Toast.LENGTH_LONG).show()
+                    dialog.dismiss()
                 }
 
             }
@@ -107,16 +111,19 @@ class MainActivity : AppCompatActivity() {
     fun showBottomSheetDialog(view: View) {
         bottomSheetDialog {
             layoutId = R.layout.layout_dialog
-            setCustomView = {
+            setCustomView = {it: View, dialog: DialogFragment ->
+
                 it.title.text = getString(R.string.fragment_dialog_title)
                 it.description.text = getString(R.string.fragment_dialog_description)
 
                 it.accept.setOnClickListener {
                     Toast.makeText(context, "accept button click", Toast.LENGTH_LONG).show()
+                    dialog.dismiss()
                 }
 
                 it.reject.setOnClickListener {
                     Toast.makeText(context, "reject button click", Toast.LENGTH_LONG).show()
+                    dialog.dismiss()
                 }
 
             }

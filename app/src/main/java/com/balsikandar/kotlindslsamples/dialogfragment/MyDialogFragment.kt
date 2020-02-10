@@ -12,7 +12,7 @@ class MyDialogFragment : DialogFragment() {
 
     var layoutId: Int? = null
 
-    lateinit var callback: (View) -> Unit
+    lateinit var callback: (View, DialogFragment) -> Unit
 
     companion object {
 
@@ -28,7 +28,7 @@ class MyDialogFragment : DialogFragment() {
         }
     }
 
-    fun setCustomView(customView: (View) -> Unit) {
+    fun setCustomView(customView: (View, DialogFragment) -> Unit) {
         callback = customView
     }
 
@@ -50,7 +50,7 @@ class MyDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        callback.invoke(view)
+        callback.invoke(view, this)
     }
 
 }

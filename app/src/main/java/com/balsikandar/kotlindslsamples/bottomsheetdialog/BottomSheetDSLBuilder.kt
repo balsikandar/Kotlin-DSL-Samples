@@ -3,13 +3,14 @@ package com.balsikandar.kotlindslsamples.bottomsheetdialog
 import android.app.Activity
 import android.content.Context
 import android.view.View
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 
 data class BottomSheetDSLBuilder(
     val alertContext: Context,
     val layoutId: Int?,
-    val setCustomView: (View) -> Unit
+    val setCustomView: (View, DialogFragment) -> Unit
 ) {
 
     constructor(builder: Builder) : this(
@@ -42,7 +43,7 @@ data class BottomSheetDSLBuilder(
     class Builder(context: Context) {
         var alertContext: Context = context
         var layoutId: Int? = null
-        lateinit var setCustomView: (View) -> Unit
+        lateinit var setCustomView: (View, DialogFragment) -> Unit
         fun build() = BottomSheetDSLBuilder(this)
 
     }

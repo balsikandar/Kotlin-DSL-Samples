@@ -4,15 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import com.balsikandar.kotlindslsamples.utils.TAG
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import java.lang.Exception
 
 class MyBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     var layoutId: Int? = null
 
-    lateinit var callback: (View) -> Unit
+    lateinit var callback: (View, DialogFragment) -> Unit
 
     companion object {
 
@@ -28,7 +28,7 @@ class MyBottomSheetDialogFragment : BottomSheetDialogFragment() {
         }
     }
 
-    fun setCustomView(customView: (View) -> Unit) {
+    fun setCustomView(customView: (View, DialogFragment) -> Unit) {
         callback = customView
     }
 
@@ -50,7 +50,7 @@ class MyBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        callback.invoke(view)
+        callback.invoke(view, this)
     }
 
 }
