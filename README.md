@@ -115,6 +115,32 @@ This is a basic example to show how it can be so easy to ask permission in Andro
   }
 ```    
 
+### Checkout my other projects you may find them useful
+
+ #### [CrashReporter](https://github.com/MindorksOpenSource/CrashReporter)
+ 
+ Robin is a logging library for Bundle data passed between Activities and fragments. It also provides a callback to send screen views of user visited pages to your analytics client
+
+ #### [Robin](https://github.com/balsikandar/Robin)
+ 
+ Robin is a logging library for Bundle data passed between Activities and fragments. It also provides a callback to send screen views of user visited pages to your analytics client
+ 
+ #### [Android studio plugins](https://github.com/balsikandar/Android-Studio-Plugins)
+ 
+ This is a list of all awesome and useful android studio plugins.
+
+
+
+### TODO
+Anything that improves code quality, improves it performance.
+### Find this project useful? :heart:
+* Support it by clicking the :star: button on the upper right of this page. :v:
+
+### Contact - Let's connect and share knowledge
+- [Twitter](https://twitter.com/balsikandar)
+- [Github](https://github.com/balsikandar)
+- [Medium](https://medium.com/@balsikandar.nsit)
+- [Facebook](https://www.facebook.com/balsikandar)
 
 ### License
 
