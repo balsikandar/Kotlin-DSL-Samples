@@ -119,11 +119,11 @@ This is a basic example to show how it can be so easy to ask permission in Andro
 
  #### [CrashReporter](https://github.com/MindorksOpenSource/CrashReporter)
  
- Robin is a logging library for Bundle data passed between Activities and fragments. It also provides a callback to send screen views of user visited pages to your analytics client
+CrashReporter is a handy tool to capture app crashes and save them in a file.
 
  #### [Robin](https://github.com/balsikandar/Robin)
  
- Robin is a logging library for Bundle data passed between Activities and fragments. It also provides a callback to send screen views of user visited pages to your analytics client
+ Robin is a logging library for Bundle data passed between Activities and fragments. It also provides a callback to send screen views of user visited pages to your analytics client.
  
  #### [Android studio plugins](https://github.com/balsikandar/Android-Studio-Plugins)
  
