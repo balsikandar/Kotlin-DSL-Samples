@@ -1,4 +1,4 @@
-package com.balsikandar.kotlindslsamples.dialogfragment
+package com.balsikandar.kotlindslsamples.bottomsheetdialog
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.balsikandar.kotlindslsamples.utils.TAG
-import java.lang.Exception
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class MyDialogFragment : DialogFragment() {
+class MyBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     var layoutId: Int? = null
 
@@ -16,11 +16,11 @@ class MyDialogFragment : DialogFragment() {
 
     companion object {
 
-        val TAG = MyDialogFragment::TAG.toString()
+        val TAG = MyBottomSheetDialogFragment::TAG.toString()
 
-        fun newInstance(layoutId: Int?): MyDialogFragment {
+        fun newInstance(layoutId: Int?): MyBottomSheetDialogFragment {
 
-            val frag = MyDialogFragment()
+            val frag = MyBottomSheetDialogFragment()
             frag.setArguments(Bundle().apply {
                 putInt("layoutId", layoutId!!)
             })

@@ -54,4 +54,16 @@
         android:layout_below="@+id/bt_dialog_fragment"
         android:layout_marginTop="16dp" />
 
+    <Button
+        android:id="@+id/bt_bottom_sheet"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="Bottom Sheet Dialog"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:onClick="showBottomSheetDialog"
+        android:background="@color/colorPrimaryDark"
+        android:layout_below="@+id/bt_permission"
+        android:layout_marginTop="16dp" />
+
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.balsikandar.kotlindslsamples.dialogfragment
+package com.balsikandar.kotlindslsamples.bottomsheetdialog
 
 import android.app.Activity
 import android.content.Context
@@ -7,7 +7,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 
-data class DialogDSLBuilder(
+data class BottomSheetDSLBuilder(
     val alertContext: Context,
     val layoutId: Int?,
     val setCustomView: (View, DialogFragment) -> Unit
@@ -21,20 +21,20 @@ data class DialogDSLBuilder(
 
 
     init {
-        val frag = MyDialogFragment.newInstance(layoutId)
+        val frag = MyBottomSheetDialogFragment.newInstance(layoutId)
         frag.setCustomView(setCustomView)
         frag.show(
             (alertContext as FragmentActivity).supportFragmentManager,
-            MyDialogFragment.TAG
+            MyBottomSheetDialogFragment.TAG
         )
     }
 
     companion object {
-        inline fun Activity.dialog(block: Builder.() -> Unit) {
+        inline fun Activity.bottomSheetDialog(block: Builder.() -> Unit) {
             Builder(this).apply(block).build()
         }
 
-        inline fun Fragment.dialog(block: Builder.() -> Unit) {
+        inline fun Fragment.bottomSheetDialog(block: Builder.() -> Unit) {
             Builder(this.requireActivity())
                 .apply(block).build()
         }
@@ -44,7 +44,7 @@ data class DialogDSLBuilder(
         var alertContext: Context = context
         var layoutId: Int? = null
         lateinit var setCustomView: (View, DialogFragment) -> Unit
-        fun build() = DialogDSLBuilder(this)
+        fun build() = BottomSheetDSLBuilder(this)
 
     }
 }
