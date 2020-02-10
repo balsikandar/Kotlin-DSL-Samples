@@ -55,42 +55,48 @@ This example shows how to create dialog just pass any **layoutId** and then in s
 
 ```
       dialog {
-          layoutId = R.layout.layout_dialog
-          setCustomView = {
-              it.title.text = getString(R.string.fragment_dialog_title)
-              it.description.text = getString(R.string.fragment_dialog_description)
+         layoutId = R.layout.layout_dialog
+         setCustomView = {it: View, dialog: DialogFragment ->
 
-              it.accept.setOnClickListener {
-                  Toast.makeText(context, "accept button click", Toast.LENGTH_LONG).show()
-              }
+            it.title.text = getString(R.string.fragment_dialog_title)
+            it.description.text = getString(R.string.fragment_dialog_description)
 
-              it.reject.setOnClickListener {
-                  Toast.makeText(context, "reject button click", Toast.LENGTH_LONG).show()
-              }
+            it.accept.setOnClickListener {
+                Toast.makeText(context, "accept button click", Toast.LENGTH_LONG).show()
+                dialog.dismiss()
+            }
 
-          }
+            it.reject.setOnClickListener {
+                Toast.makeText(context, "reject button click", Toast.LENGTH_LONG).show()
+                dialog.dismiss()
+            }
+
+        }
       }
 ```    
 
 ### Bottom sheet Dialog using BottomSheetDialogFragment
 Just like Dialog fragment we can create DSL for BottomSheetDialog fragment or any other similar use cases.
 ```
-      bottomSheetDialog {
-          layoutId = R.layout.layout_dialog
-          setCustomView = {
-              it.title.text = getString(R.string.fragment_dialog_title)
-              it.description.text = getString(R.string.fragment_dialog_description)
+    bottomSheetDialog {
+        layoutId = R.layout.layout_dialog
+        setCustomView = {it: View, dialog: DialogFragment ->
 
-              it.accept.setOnClickListener {
-                  Toast.makeText(context, "accept button click", Toast.LENGTH_LONG).show()
-              }
+            it.title.text = getString(R.string.fragment_dialog_title)
+            it.description.text = getString(R.string.fragment_dialog_description)
 
-              it.reject.setOnClickListener {
-                  Toast.makeText(context, "reject button click", Toast.LENGTH_LONG).show()
-              }
+            it.accept.setOnClickListener {
+                Toast.makeText(context, "accept button click", Toast.LENGTH_LONG).show()
+                dialog.dismiss()
+            }
 
-          }
-      }
+            it.reject.setOnClickListener {
+                Toast.makeText(context, "reject button click", Toast.LENGTH_LONG).show()
+                dialog.dismiss()
+            }
+
+        }
+    }
 
 ```   
 
