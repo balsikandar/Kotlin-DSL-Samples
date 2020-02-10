@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">KotlinDSLSamples</string>
+    <string name="app_name">Kotlin DSL Samples</string>
+    <string name="fragment_dialog_title">This is a fragment Dialog</string>
+    <string name="fragment_dialog_description">This is a DSL to create custom Dialogs using Dialog Fragment</string>
 </resources>

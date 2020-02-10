@@ -2,16 +2,18 @@ package com.balsikandar.kotlindslsamples
 
 import android.Manifest
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.balsikandar.kotlindslsamples.customAlert.AlertData
-import com.balsikandar.kotlindslsamples.customAlert.CustomAlert.Companion.customAlert
-import com.balsikandar.kotlindslsamples.defaultAlert.Alert.Companion.alert
+import androidx.appcompat.app.AppCompatActivity
+import com.balsikandar.kotlindslsamples.customAlertDialog.AlertData
+import com.balsikandar.kotlindslsamples.customAlertDialog.CustomAlert.Companion.customAlert
+import com.balsikandar.kotlindslsamples.defaultAlertDialog.Alert.Companion.alert
+import com.balsikandar.kotlindslsamples.dialogfragment.DialogDSLBuilder.Companion.dialog
 import com.balsikandar.kotlindslsamples.permission.PermissionRequest.Companion.getPermissions
+import kotlinx.android.synthetic.main.layout_dialog.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,18 +23,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         context = this
-
-        //request permission
-        requestStoragepermission()
-
-        //show default alertDialog
-        //showDefaultAlert()
-
-        //show custom alert
-        showCustomAlert()
     }
 
-    private fun showCustomAlert() {
+    fun showDialogFragment(view: View) {
+        dialog {
+            layoutId = R.layout.layout_dialog
+            setCustomView = {
+                it.title.text = getString(R.string.fragment_dialog_title)
+                it.description.text = getString(R.string.fragment_dialog_description)
+
+                it.accept.setOnClickListener {
+                    Toast.makeText(context, "accept button click", Toast.LENGTH_LONG).show()
+                }
+
+                it.reject.setOnClickListener {
+                    Toast.makeText(context, "reject button click", Toast.LENGTH_LONG).show()
+                }
+
+            }
+        }
+    }
+
+    fun showCustomAlert(view: View) {
         val alertData = AlertData(
                 "This is a Custom Dialog Title",
                 "This is a Custom Dialog Description"
@@ -59,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showDefaultAlert() {
+    fun showDefaultAlert(view: View) {
         alert {
             title = "Hey Title"
             description = "Hey Description"
@@ -74,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun requestStoragepermission() {
+    fun requestStoragePermission(view: View) {
         val permissionsList = arrayOf(
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
@@ -82,11 +94,11 @@ class MainActivity : AppCompatActivity() {
         getPermissions {
             permissions = permissionsList
             onPermissionGranted = {
-                Toast.makeText(context, "onPermissionGranted", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Permission Given", Toast.LENGTH_LONG).show()
             }
 
             onPermissionDenied = {
-                Toast.makeText(context, "onPermissionDenied", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Permission Denied", Toast.LENGTH_LONG).show()
             }
         }
     }

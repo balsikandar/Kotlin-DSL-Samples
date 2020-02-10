@@ -7,6 +7,11 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.balsikandar.kotlindslsamples.OnRequestCallBack
 
+/**
+ * This is a simple example which currently supports only one permission request
+ * through DSL example. This is only to explain what we can achieve with DSL and it's simple syntax
+ * anyway you can easily modify or request me to make it full fledged sample if you want.
+ */
 class PermissionActivity : AppCompatActivity() {
 
     companion object {

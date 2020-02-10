@@ -1,4 +1,4 @@
-package com.balsikandar.kotlindslsamples.defaultAlert
+package com.balsikandar.kotlindslsamples.defaultAlertDialog
 
 import android.content.Context
 import androidx.appcompat.app.AlertDialog

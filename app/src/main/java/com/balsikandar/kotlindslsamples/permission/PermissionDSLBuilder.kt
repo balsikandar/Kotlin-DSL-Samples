@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.balsikandar.kotlindslsamples.OnRequestCallBack
 
 class PermissionRequest(
@@ -23,7 +24,11 @@ class PermissionRequest(
     )
 
     companion object {
+
         fun Activity.getPermissions(block: Builder.() -> Unit) = Builder(this).apply(block).build()
+
+        fun Fragment.getPermissions(block: Builder.() -> Unit) =
+            Builder(this.requireActivity()).apply(block).build()
     }
 
     init {
